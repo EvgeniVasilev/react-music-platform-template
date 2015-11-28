@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.css" />
+    <style>
+        .inline {
+            margin-left: -15px;
+        }
+        
+        .buttons {
+            width: 11%;
+            margin-left: 12px;
+        }
+        
+        .tile {
+            background-color: white;
+            height: 50px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            color: maroon;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 14px black inset;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        footer {
+            background-color: rgb(34, 34, 34);
+            min-height: 50px;
+            width: 100%;
+            margin: 80px 0 0 0;
+        }
+        
+        .icons{
+            font-size: 30px;
+            color: maroon;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .icons:hover{
+            text-decoration: none;
+        }
+    </style>
+
+    <body>
+        <div class="container-fluid">
+            <div id="login">
+
+            </div>
+            <header class="page-header">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1>
+                            <small>
+                                Music  Platform Build in React
+                            </small>
+                        </h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="pull-right">
+                            <small>
+                                <a class="icons">
+                                    <i class="fa fa-facebook-official"></i>                            
+                                </a>
+                                <a class="icons">
+                                    <i class="fa fa-google-plus-square"></i>                                       
+                                </a>
+                                <a class="icons">
+                                    <i class="fa fa-twitter-square"></i>   
+                                </a>
+                            </small>
+                        </h1>
+                    </div>
+                </div>
+            </header>
+            <div id="player-load">
+
+            </div>
+
+            <div id="comments"></div>
+        </div>
+
+        <footer>
+
+        </footer>
+        <script type="text/babel" src="player.jsx"></script>
+
+    </body>
+
+</html>
