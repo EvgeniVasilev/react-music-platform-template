@@ -68,19 +68,19 @@ var Login = React.createClass({
     
 	render: function(){
 		return(
-            <div className="container-fluid">
-            <br/>
-                <div className="col-lg-8 pull-right inline">
-                    <div className="form-group col-lg-4">
-                        <input type="text" className="form-control" placeholder="User Name"/>
-                    </div>
+	            <div className="container-fluid">
+	            <br/>
+                	<div className="col-lg-8 pull-right inline">
+                    	    <div className="form-group col-lg-4">
+                               <input type="text" className="form-control" placeholder="User Name"/>
+                           </div>
                     
-                    <div className="form-group col-lg-4">
-                        <input type="password" className="form-control" placeholder="Password"/>
-                    </div>                     
-                     <button className="btn btn-primary" value="Login"  onClick={this.stopSubmit}>Login&nbsp;&nbsp;<i className="glyphicon glyphicon-log-in"></i></button>
-                </div>               
-            </div>
+                          <div className="form-group col-lg-4">
+                             <input type="password" className="form-control" placeholder="Password"/>
+                          </div>                     
+                          <button className="btn btn-primary" value="Login"  onClick={this.stopSubmit}>Login&nbsp;&nbsp;<i className="glyphicon glyphicon-log-in"></i></button>
+                        </div>               
+                  </div>
         );
 	}
 })
