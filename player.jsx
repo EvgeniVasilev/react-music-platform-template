@@ -7,12 +7,10 @@ var Player = React.createClass({
         clickHandler: function(event) {
             var url_pattern= /(http:|https:)?\/\/(www\.)?(youtube.com|youtu.be)\/(embed)(\S+)/;
             var url_elem = document.getElementById("set-url").value;
-            if(url_elem.match(url_pattern)){
-                alert("The inserted value is correct youtube embed url!");;
-            } else {
-                alert("Please inser a valid youtube embed vide url!");
+            if(!url_elem.match(url_pattern)){
+                document.getElementById("url-error").className = "errors";
                 return;
-            }
+            } 
             this.setState({
                 url: url_elem
             });
@@ -24,6 +22,7 @@ var Player = React.createClass({
             });
             var url_elem = document.getElementById("set-url");
             url_elem.value = "";
+            document.getElementById("url-error").className = "hide";
         },
 
         render: function () {
@@ -43,7 +42,8 @@ var Player = React.createClass({
                            <form className="col-lg-9" Validate>
                             <div className="form-group inline">
                                 <input id="set-url" type="text" className="form-control" placeholder="https://www.youtube.com/embed/1NvsMKYgCsM"/>
-                            </div>
+                                <div id="url-error" className="hide">Please inser a valid url!</div>
+                            </div>                            
                            </form>
                            <button className="btn btn-primary buttons" onClick={this.clickHandler}>Play&nbsp;&nbsp;<i className="glyphicon glyphicon-play"></i></button>
                            <button className="btn btn-danger buttons" onClick={this.resetWindow}>Reset&nbsp;&nbsp;<i className="glyphicon glyphicon-refresh"></i></button>
@@ -61,31 +61,74 @@ var Player = React.createClass({
 
 
 var Login = React.createClass({
+
+    getInitialState: function() {
+            return{
+                login: "block",
+                logout: "none"
+            }
+        },
     
-    stopSubmit: function() {
-        alert("Will come later");        
+    logIn: function() { 
+        var user = document.getElementById("user"), password = document.getElementById("password");
+        if(user.value === "admin" && password.value === "admin"){
+            this.setState({
+                login: "none",
+                logout: "block"
+            });
+
+             document.getElementById("comments").className = "show col-lg-8 col-lg-offset-2";
+
+        } else {
+            document.getElementById("error").className = "errors";
+        }         
+    },
+
+    logOut: function() {
+        this.setState({
+            login: "block",
+            logout: "none"
+        });
+
+        document.getElementById("error").className = "hide";
+        document.getElementById("comments").className = "hide";;
+
+        var user = document.getElementById("user"), password = document.getElementById("password");
+        user.value = "";
+        password.value = "";
     },
     
-	render: function(){
-		return(
-	            <div className="container-fluid">
-	            <br/>
-                	<div className="col-lg-8 pull-right inline">
-                    	    <div className="form-group col-lg-4">
-                               <input type="text" className="form-control" placeholder="User Name"/>
-                           </div>
-                    
-                          <div className="form-group col-lg-4">
-                             <input type="password" className="form-control" placeholder="Password"/>
-                          </div>                     
-                          <button className="btn btn-primary" value="Login"  onClick={this.stopSubmit}>Login&nbsp;&nbsp;<i className="glyphicon glyphicon-log-in"></i></button>
-                        </div>               
-                  </div>
-        );
+	render: function(){       
+		return( 
+        <div>   
+            { /* login button*/ } 
+            <div id="logout-btn" className="form-lg-6 form-inline pull-right padded" style={{display: this.state.logout}}>
+                <div className="form-group">
+                    <button className="btn btn-primary" onClick={this.logOut}>Logout&nbsp;&nbsp;<i className="glyphicon glyphicon-log-out"></i></button>
+                </div>
+            </div>
+
+            { /* login button*/ }      
+             <div id="login-btn" className="form-lg-6 form-inline pull-right padded" style={{display:this.state.login}}>
+                <div className="form-group">
+                    <input id="user" type="text"  value="admin" className="form-control" placeholder="User Name" />
+                </div>
+                &nbsp;
+                &nbsp;
+                <div className="form-group">
+                    <input id="password" value="admin" type="password"  className="form-control" placeholder="Password"/>
+                </div>    
+                &nbsp;
+                &nbsp;
+                <button className="btn btn-primary" onClick={this.logIn}>Login&nbsp;&nbsp;<i className="glyphicon glyphicon-log-in"></i></button>    
+                <div id="error" className="hide">Please fill in your user name and password</div>
+            </div>            
+        </div>    
+        );        
 	}
 })
 
 ReactDOM.render(
-	<Login />,
+	<Login/>,
 	document.getElementById("login")
 );

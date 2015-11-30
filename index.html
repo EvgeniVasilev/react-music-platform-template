@@ -8,67 +8,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.css" />
-    <style>
-        .inline {
-            margin-left: -15px;
-        }
-        
-        .buttons {
-            width: 11%;
-            margin-left: 12px;
-        }
-        
-        .tile {
-            background-color: white;
-            height: 50px;
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-            color: maroon;
-            padding: 10px;
-            margin-bottom: 20px;
-            box-shadow: 4px 4px 14px black inset;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        footer {
-            background-color: rgb(34, 34, 34);
-            min-height: 50px;
-            width: 100%;
-            margin: 80px 0 0 0;
-        }
-        
-        .icons{
-            font-size: 30px;
-            color: maroon;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        
-        .icons:hover{
-            text-decoration: none;
-        }
-    </style>
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/main.css">
 </head>
-    <body>
-        <div class="container-fluid">
-            <div id="login">
 
-            </div>
-            <header class="page-header">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h1>
+<body>
+    <div class="container-fluid">
+        <div id="login" class="row">  
+            
+            
+        </div>
+
+        <header class="page-header">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>
                             <small>
                                 Music  Platform Build in React
                             </small>
                         </h1>
-                    </div>
-                    <div class="col-lg-6">
-                        <h1 class="pull-right">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="pull-right">
                             <small>
                                 <a class="icons">
                                     <i class="fa fa-facebook-official"></i>                            
@@ -81,21 +45,57 @@
                                 </a>
                             </small>
                         </h1>
-                    </div>
                 </div>
-            </header>
-            <div id="player-load">
+            </div>
+        </header>
+        <!--player-->
+        <div id="player-load">
 
+        </div>
+        <!--insert commemt-->
+        <div>
+            <!--using in-line style is not a right way to style your HTML but in this case it is the only way to avoid blinking after log-in log-out or page reload-->
+            <form id="comments" class="col-lg-8 col-lg-offset-2" style="display: none;" data-bind="submit: function() { makeComment() }">
+                <div class="form-group">
+                    <p>
+                        <label for="comment" class="label label-default">Post Comment:</label>
+                    </p>
+                    <textarea name="comment" id="comment" class="form-control" rows="6" data-bind="value: comments"></textarea>
+                    <div class="errors" data-bind="visible: isEmpty">Please write something!</div>
+                    <br/>
+                </div>
+                <div class="forrm-group">
+                    <button class="btn btn-primary">Comment&nbsp;&nbsp;<i class="glyphicon glyphicon-envelope"></i></button>
+                </div>
+                <br/>
+                <br/>
+            </form>
+        </div>
+        <!--comments-->
+        <div id="comments" data-bind="foreach: users">
+            <!--head-->
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="col-lg-1">
+                    <div class="avatar">A</div>
+                </div>
+                <div class="col-lg-11 ">
+                    <p class="padded-top name" data-bind="text: name"></p>
+                </div>
             </div>
 
-            <div id="comments"></div>
+            <!--body-->
+            <div class="col-lg-10 col-lg-offset-1">
+                <br/>
+                <p class="body" data-bind="text: comment"></p>
+            </div>
         </div>
+    </div>
 
-        <footer>
+    <footer>
 
-        </footer>
-        <script type="text/babel" src="player.jsx"></script>
-
-    </body>
+    </footer>
+    <script type="text/babel" src="player.jsx"></script>
+    <script type="text/javascript" src="comments.kn.js"></script>
+</body>
 
 </html>

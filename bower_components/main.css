@@ -1,0 +1,126 @@
+.inline {
+    margin-left: -15px;
+}
+        
+.buttons {
+     width: 11%;
+     margin-left: 12px;
+}
+        
+.tile {
+      background-color: white;
+      height: 50px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      color: maroon;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 4px 4px 14px black inset;
+      border-radius: 5px;
+      cursor: pointer;
+}
+        
+footer {
+      background-color: rgb(34, 34, 34);
+      min-height: 50px;
+      width: 100%;
+      margin: 80px 0 0 0;
+}
+     
+.to-right {
+      margin-left: -3px;
+}
+        
+.errors {
+    color: red;
+    -webkit-animation: admin 1.5s;
+    -moz-animation: admin 1.5s;
+    animation: admin 1.5s;
+    position: absolute;
+    font-size: 13px;
+}
+        
+@-webkit-keyframes admin {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @-moz-keyframes admin {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @-o-keyframes admin {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes admin {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .box-height-50 {
+            height: 50px;
+        }
+        
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 100px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            overflow: hidden;
+            background-color: #d9534f;
+            color: white;
+        }
+        
+        p.name {
+            color: rgb(34, 34, 34);
+            font-weight: bold;
+        }
+        
+        p.body {
+            color: rgb(34, 34, 34);
+            text-align: justify;
+            text-indent: 30px;
+            font-family: Arial, verdana, sans-serif;
+            font-size: 15px;
+        }
+        
+        .padded-top {
+            margin: 12px 0 0 -22px;
+        }
+        
+        a.icons {
+            text-decoration: none;
+            color: maroon;
+            cursor: pointer;
+            font-size: 30px;
+        }
+        
+        .from-top {
+            margin: 50px 0 0 0;
+        }
+        
+        .padded{
+            padding: 10px;
+        }
